@@ -1,5 +1,9 @@
 <template>
-  <router-view/>
+  <div class="page">
+    <main class="page__main">
+      <router-view/>
+    </main>
+  </div>
 </template>
 
 <style lang="scss">

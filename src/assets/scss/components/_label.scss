@@ -1,0 +1,11 @@
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: rem(20px);
+  padding-right: rem(7px);
+  padding-left: rem(7px);
+
+  border-radius: rem(24px);
+}
