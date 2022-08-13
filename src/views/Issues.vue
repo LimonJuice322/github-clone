@@ -1,7 +1,7 @@
 <template>
   <div class="issues">
     <h1 class="issues__title">
-      Issues for <a class="issues__owner">vuejs</a> / <a class="issues__repo">vue</a>
+      Issues for <a href="#" class="issues__owner">vuejs</a> / <a href="#" class="issues__repo">vue</a>
     </h1>
 
     <Board
@@ -34,7 +34,6 @@ export default {
 
   mounted() {
     this.$store.dispatch('getIssues');
-    console.log(this.$store);
     this.$store.dispatch('getRepoInfo');
   },
 }
