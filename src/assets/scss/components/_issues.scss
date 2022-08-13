@@ -22,4 +22,35 @@
   &__repo {
     font-weight: 500;
   }
+
+  &__loader {
+    $size: 60px;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    width: rem($size);
+    height: rem($size);
+
+    transform: translate(-50%, -50%);
+    animation: round 1s infinite;
+
+    border: rem(5px) solid $blue;
+    border-radius: rem(12px);
+  }
+}
+
+@keyframes round {
+  0% {
+    transform: rotate(0);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

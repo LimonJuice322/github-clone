@@ -5,11 +5,17 @@
     </h1>
 
     <Board
+      v-if="issuesList && closedCount"
       class="issues__board"
       :issues-list="issuesList"
       :opened-count="openedCount"
       :closed-count="closedCount"
     />
+
+    <div
+      v-else
+      class="issues__loader"
+    ></div>
   </div>
 </template>
 
