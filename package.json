@@ -10,9 +10,13 @@
   "dependencies": {
     "@octokit/core": "^4.0.4",
     "core-js": "^3.8.3",
+    "moment": "^2.29.4",
     "normalize.css": "^8.0.1",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
+    "vue-svg-loader": "^0.17.0-beta.2",
+    "vue-svg-sprite": "^2.2.1",
+    "vue-template-compiler": "^2.7.8",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
@@ -35,6 +39,11 @@
     "not ie 11"
   ],
   "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,vue}",
+      "!src/main.js"
+    ],
     "preset": "@vue/cli-plugin-unit-jest"
   }
 }
