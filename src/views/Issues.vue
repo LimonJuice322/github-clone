@@ -7,9 +7,11 @@
     <Board
       v-if="issuesList && closedCount"
       class="issues__board"
+      :state="state"
       :issues-list="issuesList"
       :opened-count="openedCount"
       :closed-count="closedCount"
+      @filter-issues="filterIssues"
     />
 
     <div
@@ -35,6 +37,22 @@ export default {
   mounted() {
     this.$store.dispatch('getIssues');
     this.$store.dispatch('getRepoInfo');
+  },
+
+  data() {
+    return {
+      state: 'open',
+    }
+  },
+
+  methods: {
+    filterIssues(state) {
+      console.log(state);
+      if (state !== this.state) {
+        this.$store.dispatch('getIssues', { state });
+        this.state = state;
+      }
+    }
   },
 }
 </script>

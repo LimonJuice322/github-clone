@@ -65,11 +65,11 @@ export default createStore({
     }
   },
   actions: {
-    async getIssues({ commit }) {
+    async getIssues({ commit }, options) {
       try {
         commit('START_ISSUES_LOAD');
 
-        const response = await client.getIssues();
+        const response = await client.getIssues(options);
         const issues = response.data;
 
         commit('GET_ISSUES', issues);

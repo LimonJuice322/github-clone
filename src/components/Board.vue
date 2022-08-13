@@ -2,11 +2,19 @@
   <div class="board">
     <div class="board__header">
       <div class="board__meta">
-        <button class="board__meta-button board__meta-button--active">
+        <button
+          class="board__meta-button"
+          :class="{'board__meta-button--active': state === 'open'}"
+          @click="filterIssues('open')"
+        >
           <PinIcon class="board__meta-button-icon" /> {{ openedCount }} Open
         </button>
 
-        <button class="board__meta-button">
+        <button
+          class="board__meta-button"
+          :class="{'board__meta-button--active': state === 'closed'}"
+          @click="filterIssues('closed')"
+        >
           <CheckmarkIcon class="board__meta-button-icon" /> {{ closedCount }} Closed
         </button>
       </div>
@@ -49,6 +57,10 @@ export default {
   },
 
   props: {
+    state: {
+      type: String,
+    },
+
     issuesList: {
       type: Array,
     },
@@ -59,6 +71,12 @@ export default {
 
     closedCount: {
       type: Number,
+    },
+  },
+
+  methods: {
+    filterIssues(state) {
+      this.$emit('filter-issues', state)
     },
   },
 }

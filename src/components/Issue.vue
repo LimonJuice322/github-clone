@@ -128,8 +128,12 @@ export default {
       return moment(time).fromNow();
     },
 
+    setState() {
+      return this.state === 'open' ? 'opened' : 'closed';
+    },
+
     setInfo() {
-      return `#${this.number} ${this.state}ed ${this.getTime(this.createdAt)} by ${this.author}`;
+      return `#${this.number} ${this.setState()} ${this.getTime(this.createdAt)} by ${this.author}`;
     },
   },
 }

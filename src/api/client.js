@@ -13,10 +13,8 @@ class Client {
     return this._request.get('/search/issues?q=repo:vuejs/vue+type:issue+state:closed')
   }
 
-  getIssues(currentPage = 1) {
-    return this._request.get('/repos/vuejs/vue/issues', {
-      page: currentPage,
-    })
+  getIssues(options) {
+    return this._request.get('/repos/vuejs/vue/issues', options)
   }
 }
 
