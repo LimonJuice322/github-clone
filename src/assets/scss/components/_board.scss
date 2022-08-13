@@ -1,0 +1,55 @@
+.board {
+  border: rem(1px) solid $gray-light;
+  border-radius: rem(6px);
+
+  &__header {
+    padding: rem(16px);
+
+    border-bottom: rem(1px) solid $gray-light;
+    background-color: $light;
+  }
+
+  &__item + &__item {
+    border-top: rem(1px) solid $gray-light;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+
+    &-button {
+      font-size: rem(14px);
+      line-height: 1;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 0;
+
+      cursor: pointer;
+
+      color: $gray;
+      border: 0;
+      background-color: transparent;
+
+      &:hover {
+        color: $dark;
+      }
+
+      &--active {
+        font-weight: 600;
+
+        color: $dark;
+      }
+
+      &-icon {
+        margin-right: rem(6px);
+      }
+    }
+
+    &-button + &-button {
+      margin-left: rem(12px);
+    }
+  }
+}

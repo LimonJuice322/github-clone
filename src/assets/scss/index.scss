@@ -1,4 +1,13 @@
 @import "~normalize.css";
 
-@import 'abstracts/variables.scss';
+@import 'abstracts/functions';
+@import 'abstracts/variables';
+
+@import 'generic';
+
+@import 'components/page';
+@import 'components/board';
+@import 'components/issue';
+@import 'components/issues';
+@import 'components/label';
 
