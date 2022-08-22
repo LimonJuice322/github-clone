@@ -3,11 +3,6 @@ import client from '@/api/client';
 
 export default createStore({
   state: {
-    paginate: {
-      currentPage: 1,
-      perPage: 15,
-    },
-
     issues: {
       data: null,
       error: false,
