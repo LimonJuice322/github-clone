@@ -27,14 +27,8 @@
           class="board__item"
         >
           <Issue
-            :state="issue.state"
-            :title="issue.title"
-            :number="issue.number"
+            :data="issue"
             :type="issue.pull_request ? 'pull-request' : 'issue'"
-            :created-at="issue.created_at"
-            :author="issue.user.login"
-            :labels="issue.labels"
-            :comments="issue.comments"
           />
         </li>
       </ul>
