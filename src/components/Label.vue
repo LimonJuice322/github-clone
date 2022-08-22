@@ -8,7 +8,7 @@
 </template>
 
 <script>
-const SPECIAL_COLORS = ['fbca04'];
+import colorBrightness from '@/helpers/colorBrightness';
 
 export default {
   name: 'Label',
@@ -28,7 +28,7 @@ export default {
       let backgroundColor = `background-color: #${this.color};`;
       let color = 'color: #ffffff;';
 
-      if (SPECIAL_COLORS.includes(this.color)) {
+      if (colorBrightness(this.color, 128)) {
         color = 'color: #000000;'
       }
 
