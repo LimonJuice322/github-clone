@@ -1,0 +1,127 @@
+.paginator {
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__item + &__item {
+    margin-left: rem(5px);
+  }
+
+  &__link {
+    display: none;
+
+    @media #{$screen-desktop} {
+      $size: 32px;
+
+      font-size: rem(14px);
+      line-height: 1;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: rem($size);
+      height: rem($size);
+
+      cursor: pointer;
+      transition: 0.1s;
+
+      color: $dark;
+      border: rem(1px) solid transparent;
+      border-radius: rem(6px);
+      background-color: transparent;
+
+      &:hover {
+        border-color: $gray-light;
+      }
+    }
+
+    &--current {
+      color: $white;
+      background-color: $blue;
+
+      &:hover {
+        border-color: $blue;
+      }
+    }
+
+    &--dots {
+      cursor: default;
+
+      &:hover {
+        border-color: transparent;
+      }
+    }
+
+    &--next,
+    &--previous {
+      $size: 32px;
+
+      font-size: rem(14px);
+      line-height: 1;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: auto;
+      height: rem($size);
+      padding-left: rem(8px);
+      padding-right: rem(8px);
+
+      cursor: pointer;
+      transition: 0.1s;
+
+      color: $blue;
+      border: rem(1px) solid transparent;
+      border-radius: rem(6px);
+      background-color: transparent;
+
+      &:hover {
+        border-color: $gray-light;
+      }
+
+      &::before {
+        $size: 16px;
+
+        width: rem($size);
+        height: rem($size);
+
+        content: '';
+        clip-path: polygon(9.8px 12.8px, 8.7px 12.8px, 4.5px 8.5px, 4.5px 7.5px, 8.7px 3.2px, 9.8px 4.3px, 6.1px 8px, 9.8px 11.7px, 9.8px 12.8px);
+
+        background-color: currentColor;
+      }
+    }
+
+    &--next {
+      flex-direction: row-reverse;
+    }
+
+    &--next {
+      &::before {
+        margin-left: rem(4px);
+
+        transform: rotate(180deg);
+      }
+    }
+
+    &--previous {
+      &::before {
+        margin-right: rem(4px);
+      }
+    }
+
+    &--disabled {
+      cursor: default;
+
+      color: $disabled;
+
+      &:hover {
+        border-color: transparent;
+      }
+    }
+  }
+}

@@ -3,6 +3,10 @@
 
   padding: rem(8px) rem(16px);
 
+  &:hover {
+    background-color: $light;
+  }
+
   &__icon {
     flex-shrink: 0;
 
