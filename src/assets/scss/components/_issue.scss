@@ -36,15 +36,14 @@
 
   &__header {
     margin-bottom: rem(8px);
-
-    @media #{$screen-desktop} {
-      display: flex;
-      align-items: center;
-    }
   }
 
   &__link {
     color: $dark;
+
+    @media #{$screen-desktop} {
+      vertical-align: middle;
+    }
 
     &:hover {
       color: $blue
@@ -54,21 +53,29 @@
   &__title {
     font-size: rem($font-size-base);
     line-height: 1;
+
+    @media #{$screen-desktop} {
+      display: inline;
+    }
   }
 
   &__labels {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
 
-    margin-top: rem(8px);
+    margin: rem(3px) rem(-3px) rem(-3px) rem(-3px);
 
     @media #{$screen-desktop} {
-      margin-top: 0;
+      display: inline;
+
       margin-left: rem(8px);
     }
 
-    &-item + &-item {
-      margin-left: rem(4px);
+    &-item {
+      display: inline-block;
+
+      padding: rem(3px) rem(2px);
     }
   }
 
