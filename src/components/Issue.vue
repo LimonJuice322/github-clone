@@ -1,48 +1,48 @@
 <template>
   <div class="issue">
-    <div class="issue__icon">
-      <template v-if="data.state === 'open'">
-        <PinIcon
-          v-if="type === 'issue'"
-          class="issue__icon-pic issue__icon-pic--green"
-        />
-        <PullRequestDraftIcon
-          v-else-if="data.draft"
-          class="issue__icon-pic issue__icon-pic--gray"
-        />
-        <PullRequestIcon
-          v-else
-          class="issue__icon-pic issue__icon-pic--green"
-        />
-      </template>
-
-      <template v-else>
-        <template v-if="type === 'issue'">
-          <PinCompleteIcon
-            v-if="data.state_reason === 'completed'"
-            class="issue__icon-pic issue__icon-pic--blue"
-          />
-          <PinCancelIcon
-            v-if="data.state_reason === 'not_planned'"
-            class="issue__icon-pic issue__icon-pic--gray"
-          />
-        </template>
-
-        <template v-else>
-          <PullRequestMergedIcon
-            v-if="data.pull_request.merged_at"
-            class="issue__icon-pic issue__icon-pic--blue"
-          />
-          <PullRequestClosedIcon
-            v-else
-            class="issue__icon-pic issue__icon-pic--red"
-          />
-        </template>
-      </template>
-    </div>
-
     <div class="issue__info">
       <div class="issue__header">
+        <div class="issue__icon">
+          <template v-if="data.state === 'open'">
+            <PinIcon
+              v-if="type === 'issue'"
+              class="issue__icon-pic issue__icon-pic--green"
+            />
+            <PullRequestDraftIcon
+              v-else-if="data.draft"
+              class="issue__icon-pic issue__icon-pic--gray"
+            />
+            <PullRequestIcon
+              v-else
+              class="issue__icon-pic issue__icon-pic--green"
+            />
+          </template>
+
+          <template v-else>
+            <template v-if="type === 'issue'">
+              <PinCompleteIcon
+                v-if="data.state_reason === 'completed'"
+                class="issue__icon-pic issue__icon-pic--blue"
+              />
+              <PinCancelIcon
+                v-if="data.state_reason === 'not_planned'"
+                class="issue__icon-pic issue__icon-pic--gray"
+              />
+            </template>
+
+            <template v-else>
+              <PullRequestMergedIcon
+                v-if="data.pull_request.merged_at"
+                class="issue__icon-pic issue__icon-pic--blue"
+              />
+              <PullRequestClosedIcon
+                v-else
+                class="issue__icon-pic issue__icon-pic--red"
+              />
+            </template>
+          </template>
+        </div>
+
         <a href="" class="issue__link">
           <h2 class="issue__title">
             {{ data.title }}
@@ -67,7 +67,7 @@
       </div>
 
       <p class="issue__text">
-        {{ setInfo() }}
+        {{ issueInfo }}
       </p>
     </div>
 
@@ -131,7 +131,11 @@ export default {
   computed: {
     issueDate() {
       return this.data.state === 'open' ? this.data.created_at : this.data.closed_at;
-    }
+    },
+
+    issueInfo() {
+      return `#${this.data.number} ${this.setState()} ${this.getTime(this.issueDate)} by ${this.data.user.login}`;
+    },
   },
 
   methods: {
@@ -151,10 +155,6 @@ export default {
 
     setState() {
       return this.data.state === 'open' ? 'opened' : 'closed';
-    },
-
-    setInfo() {
-      return `#${this.data.number} ${this.setState()} ${this.getTime(this.issueDate)} by ${this.data.user.login}`;
     },
   },
 }

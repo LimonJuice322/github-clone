@@ -1,4 +1,8 @@
 .issue {
+  $icon-size: 16px;
+  $icon-margin: 10px;
+  $offset-left: $icon-size + $icon-margin;
+
   display: flex;
 
   padding: rem(8px) rem(16px);
@@ -8,9 +12,18 @@
   }
 
   &__icon {
+    flex-basis: rem($icon-size);
     flex-shrink: 0;
 
-    margin-right: rem(10px);
+    width: rem($icon-size);
+    height: rem($icon-size);
+    margin-right: rem($icon-margin);
+
+    @media #{$screen-desktop} {
+      display: inline-block;
+
+      vertical-align: middle;
+    }
 
     &-pic {
       width: 100%;
@@ -35,10 +48,18 @@
   }
 
   &__header {
+    display: flex;
+    flex-wrap: wrap;
+
     margin-bottom: rem(8px);
+
+    @media #{$screen-desktop} {
+      display: block;
+    }
   }
 
   &__link {
+    flex-basis: calc(100% - #{rem($offset-left)});
     color: $dark;
 
     @media #{$screen-desktop} {
@@ -65,11 +86,13 @@
     align-items: center;
 
     margin: rem(3px) rem(-3px) rem(-3px) rem(-3px);
+    padding-left: rem($offset-left);
 
     @media #{$screen-desktop} {
       display: inline;
 
       margin-left: rem(8px);
+      padding-left: 0;
     }
 
     &-item {
@@ -124,5 +147,9 @@
         height: 100%;
       }
     }
+  }
+
+  &__text {
+    padding-left: rem($offset-left);
   }
 }
